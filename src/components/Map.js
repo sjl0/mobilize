@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 
-const API_KEY = "";
+const API_KEY = "AIzaSyCWIN8oiZwKrQ9NPe1XQmZPeyss5JQAf-0";
 
 const EventMarker = ({ text }) => (
   <div
@@ -25,7 +25,7 @@ class Map extends Component {
   static defaultProps = {
     lat: 0,
     lng: 0,
-    zoom: 11
+    zoom: 10
   };
 
   render() {
