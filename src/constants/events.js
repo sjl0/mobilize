@@ -1,0 +1,2 @@
+export const SET_EVENTS_STATUS = "SET_EVENTS_STATUS";
+export const SET_EVENTS = "SET_EVENTS";

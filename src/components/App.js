@@ -1,12 +1,8 @@
 import React from "react";
-import logo from "../logo.svg";
+import Events from "./Events";
 
 function App() {
-  return (
-    <div>
-      <p>{"Hello World"}</p>
-    </div>
-  );
+  return <Events />;
 }
 
 export default App;
