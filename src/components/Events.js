@@ -19,15 +19,11 @@ export class Events extends Component {
     }
 
     return (
-      <div>
-        <ul>
-          {events.map(el => (
-            <li>
-              <Event event={el} />
-            </li>
-          ))}
-        </ul>
-      </div>
+      <React.Fragment>
+        {events.map(el => (
+          <Event event={el} />
+        ))}
+      </React.Fragment>
     );
   }
 }
@@ -37,7 +33,7 @@ export const mapStateToProps = state => {
 };
 
 export const mapDispatchToProps = dispatch => {
-  return { fetchEvents: () => dispatch(getEvents()) };
+  return { fetchEvents: () => dispatch(getEvents(1)) };
 };
 
 export default connect(

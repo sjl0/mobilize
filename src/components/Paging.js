@@ -22,8 +22,30 @@ export class Paging extends Component {
     const { count } = this.props;
     if (count > 0) {
       const { active } = this.state;
-      let items = [];
-      for (let number = 1; number <= count / 25; number++) {
+      let items = [
+        <Pagination.First />,
+        <Pagination.Prev />,
+        <Pagination.Item
+          key={1}
+          active={1 === active}
+          onClick={() => this.onPageClick(1)}
+        >
+          {1}
+        </Pagination.Item>
+      ];
+      const numPages = Math.ceil(count / 25);
+      let i = active - 1;
+      if (i > 2) {
+        items.push(<Pagination.Ellipsis />);
+      } else {
+        i = 2;
+      }
+      let lastPage;
+      for (
+        let number = i;
+        number <= active + 1 && number <= numPages;
+        number++
+      ) {
         items.push(
           <Pagination.Item
             key={number}
@@ -33,8 +55,25 @@ export class Paging extends Component {
             {number}
           </Pagination.Item>
         );
+        lastPage = number;
       }
-      return <Pagination>{items}</Pagination>;
+      if (lastPage < numPages) {
+        if (lastPage + 1 < numPages) {
+          items.push(<Pagination.Ellipsis />);
+        }
+        items.push(
+          <Pagination.Item
+            key={numPages}
+            active={numPages === active}
+            onClick={() => this.onPageClick(numPages)}
+          >
+            {numPages}
+          </Pagination.Item>
+        );
+      }
+      items.push(<Pagination.Next />);
+      items.push(<Pagination.Last />);
+      return <Pagination size="sm">{items}</Pagination>;
     } else {
       return null;
     }
@@ -46,7 +85,7 @@ export const mapStateToProps = state => {
 };
 
 export const mapDispatchToProps = dispatch => {
-  return { fetchEvents: () => dispatch(getEvents()) };
+  return { fetchEvents: number => dispatch(getEvents(number)) };
 };
 
 export default connect(

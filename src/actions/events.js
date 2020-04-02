@@ -14,11 +14,14 @@ function setEventsFail() {
   return { type: SET_EVENTS_STATUS, status: FAILURE };
 }
 
-export function getEvents() {
+export function getEvents(number) {
   return function(dispatch) {
     dispatch(setEventsLoading());
     return axios
-      .get(`https://api.mobilize.us/v1/organizations/1/events?page=1`)
+      .get(
+        `https://api.mobilize.us/v1/organizations/1/events?page=${number}`,
+        number
+      )
       .then(response => {
         dispatch(setEvents(response.data, SUCCESS));
       })
