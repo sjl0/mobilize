@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 
-const API_KEY = "AIzaSyCWIN8oiZwKrQ9NPe1XQmZPeyss5JQAf-0";
+const API_KEY = "";
 
 const EventMarker = ({ text }) => (
   <div
