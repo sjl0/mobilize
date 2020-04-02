@@ -3,6 +3,7 @@ import { INIT } from "../constants/status";
 
 export const initialState = {
   events: [],
+  count: 0,
   status: INIT
 };
 
@@ -14,7 +15,8 @@ function rootReducer(state = initialState, action) {
     return {
       ...state,
       status: action.status,
-      events: action.events && action.events.data
+      events: action.events && action.events.data,
+      count: action.events && action.events.count
     };
   }
   return state;

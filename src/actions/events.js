@@ -18,7 +18,7 @@ export function getEvents() {
   return function(dispatch) {
     dispatch(setEventsLoading());
     return axios
-      .get(`https://api.mobilize.us/v1/organizations/1/events`)
+      .get(`https://api.mobilize.us/v1/organizations/1/events?page=1`)
       .then(response => {
         dispatch(setEvents(response.data, SUCCESS));
       })

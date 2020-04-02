@@ -15,16 +15,19 @@ export class Events extends Component {
       return <p>{"Loading"}</p>;
     }
     if (status === FAILURE) {
-      return <p>{"Enable CORS to Get Cat Facts"}</p>;
+      return <p>{"API Failed to find events"}</p>;
     }
+
     return (
-      <ul>
-        {events.map(el => (
-          <li>
-            <Event event={el} />
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul>
+          {events.map(el => (
+            <li>
+              <Event event={el} />
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 }
