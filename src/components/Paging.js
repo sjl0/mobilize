@@ -23,8 +23,6 @@ export class Paging extends Component {
     if (count > 0) {
       const { active } = this.state;
       let items = [
-        <Pagination.First />,
-        <Pagination.Prev />,
         <Pagination.Item
           key={1}
           active={1 === active}
@@ -71,8 +69,6 @@ export class Paging extends Component {
           </Pagination.Item>
         );
       }
-      items.push(<Pagination.Next />);
-      items.push(<Pagination.Last />);
       return <Pagination size="sm">{items}</Pagination>;
     } else {
       return null;
