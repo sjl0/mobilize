@@ -2,13 +2,14 @@ import React from "react";
 import Events from "./Events";
 import Paging from "./Paging";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
 
 function App() {
   return (
-    <React.Fragment>
+    <Container>
       <Paging />
       <Events />
-    </React.Fragment>
+    </Container>
   );
 }
 

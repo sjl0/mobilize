@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getEvents } from "../actions/events";
 import Event from "./Event";
 import { FETCHING, FAILURE, INIT } from "../constants/status";
+import CardColumns from "react-bootstrap/CardColumns";
 
 export class Events extends Component {
   componentDidMount() {
@@ -19,11 +20,11 @@ export class Events extends Component {
     }
 
     return (
-      <React.Fragment>
+      <CardColumns>
         {events.map(el => (
           <Event event={el} />
         ))}
-      </React.Fragment>
+      </CardColumns>
     );
   }
 }
